@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>history spa</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            width: 100%;
+            text-align: center;
+            list-style: none;
+            padding: 20px;
+            transition: all 0.2s;
+        }
+
+        li:hover {
+            background-color: gray;
+        }
+
+        nav {
+            width: 20%;
+            height: 100%;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .main {
+            width: 80%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .out {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="out">
+        <nav>
+            <li id="navBtn" class="about_nav">About</li>
+            <li id="navBtn" class="main_nav">Main</li>
+            <li id="navBtn" class="etc_nav">Etc</li>
+        </nav>
+
+
+        <div id="root" class="main">
+            <div class="title">
+                <h1>this is about</h1>
+            </div>
+            <div class="content">about page is number 1 </div>
+        </div>
+    </div>
+    <script type="module" src="./app.js"></script>
+    <script>
+        const button = {
+            about: document.querySelector('.about_nav'),
+            main: document.querySelector('.main_nav'),
+            etc: document.querySelector('etc_nav')
+        }
+    </script>
+</body>
+
+</html>

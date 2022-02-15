@@ -12,7 +12,6 @@ export class OtherPage{
 
     render(){
       return `<span>다른 페이지</span>
-        <button type="button" class="main-button">Other Page</button>
-`;
+                <button type="button" class="main-button">Other Page</button>`;
     }
 }
