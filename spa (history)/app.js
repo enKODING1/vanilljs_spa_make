@@ -18,11 +18,31 @@
 
            */
 
+const root = document.querySelector('#root');
 
-function router(){
+const url = 'http://127.0.0.1:5500/spa%20(history)/render';
 
-}
+const button = {
+        about: document.querySelector('.about_nav'),
+        main: document.querySelector('.main_nav'),
+        etc: document.querySelector('etc_nav')
+    }
 
-function render(){
-    
-}
+const route = {
+        'About':`${url}/about.html` ,
+        'Main':`${url}/main.html`,
+        'Etc':`${url}/etc.html`
+};
+
+const request = new XMLHttpRequest();
+request.open('GET',route.Main,true);
+request.send();
+
+button.main.addEventListener('click',()=>{
+        history.pushState('root','','Main');
+        root.innerHTML = request.responseText;
+})
+
+setTimeout(() => {
+        
+}, timeout);
