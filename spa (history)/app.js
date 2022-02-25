@@ -1,48 +1,75 @@
-// 히스토리를 사용한 spa 구현해보기 
+// const button = document.querySelectorAll('#navBtn');
+// const main = document.getElementById('root');
+// const range = document.querySelector('.speed');
+// const xhr = new XMLHttpRequest();
+// let posY = 1;
+// let count = 0;
+// let opacity  =1;
+// var speed = 10;
+// let req;
+
+// range.onchange = ()=>{
+//      speed = parseInt(range.value);
+// }
+
+// const routes = {
+//      '/': './render/main.html',
+//      '/About': './render/about.html',
+//      '/Etc': './render/etc.html'
+// };
+
+// let animate = () => {
+//      //     main.innerHTML = xhr.responseText;
+//      if (count == 0 && posY <= 200) {
+//           main.style.transform = `translateY(${posY}px)`;
+//           main.style.opacity = `${opacity}`;
+//           opacity -= 0.1;
+//           posY += speed;
+//           req = window.requestAnimationFrame(animate);
+//      } else if (posY > 0 && count == 1) {
+//           main.style.transform = `translate(${posY}px)`;
+//           main.style.opacity = `${opacity}`;
+//           opacity += 0.1;
+//           posY -= speed;
+//           req = window.requestAnimationFrame(animate);
+//           if (posY <= 0) {
+//                window.cancelAnimationFrame(req);
+//                count = 0;
+//                opacity = 1;
+//           }
+//      } else if (posY => 200 && count == 0) {
+//           main.innerHTML = xhr.responseText;
+     
+//           count = 1;
+//           req = window.requestAnimationFrame(animate);
+//      }
+// }
 
 
-/*
-   기본 홈페이지는 about이라 가정           
-            
-           라우팅시
-           main클릭시 about은 push되고 뒤로 가기시 pop해서 나옴 
-
-           렌더링시
-           id='root' 를 가진 영역에 현재의 위치와 일치한 파일의 컴포넌트를 삽입한다
 
 
-           어떻게 현재 위치를 push 하고 다음의 위치를 가져올 것이냐
-           어떻게 루트 영역을 렌더링 할 것이냐
-           비동기 방법을 사용해야하나
+// const router = (event) => {
+//      window.history.pushState({}, '', event.target.href);
+//      render();
+// }
+
+// const render = () => {
+//      let path = window.location.pathname;
+//      console.log(path);
+//      const route = routes[path];
+//      xhr.open('GET', route, false);
+//      xhr.send();
+//      requestAnimationFrame(animate);
+// }
 
 
-           */
+// button.forEach((e) => {
+//      e.addEventListener('click', (event) => {
+//           event.preventDefault();
+//           router(event);
+//      });
+// })
 
-const root = document.querySelector('#root');
-
-const url = 'http://127.0.0.1:5500/spa%20(history)/render';
-
-const button = {
-        about: document.querySelector('.about_nav'),
-        main: document.querySelector('.main_nav'),
-        etc: document.querySelector('etc_nav')
-    }
-
-const route = {
-        'About':`${url}/about.html` ,
-        'Main':`${url}/main.html`,
-        'Etc':`${url}/etc.html`
-};
-
-const request = new XMLHttpRequest();
-request.open('GET',route.Main,true);
-request.send();
-
-button.main.addEventListener('click',()=>{
-        history.pushState('root','','Main');
-        root.innerHTML = request.responseText;
-})
-
-setTimeout(() => {
-        
-}, timeout);
+// window.onload = () => {
+//      render();
+// }
